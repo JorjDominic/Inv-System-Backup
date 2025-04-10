@@ -1,0 +1,256 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #9fce88 50%, #ffffff 50%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Form Container */
+.forgot-div {
+    width: 100%;
+    max-width: 450px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 
+                -10px -10px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    width: 180px;
+    height: auto;
+    margin-bottom: 25px;
+    border-radius: 20px;
+}
+
+/* Headings */
+.forgot-div h3 {
+    color: #4a934a;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Form Elements */
+.forgot-div input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.forgot-div input[type="email"]:focus {
+    outline: none;
+    border-color: #9fce88;
+    box-shadow: 0 0 0 3px rgba(159, 206, 136, 0.2);
+}
+
+.forgot-div button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a934a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.forgot-div button:hover {
+    background-color: #3a7a3a;
+}
+
+/* Response Messages */
+.response-message {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.response-message.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.response-message.error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+/* Links */
+.forgot-div a {
+    color: #4a934a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.forgot-div a:hover {
+    text-decoration: underline;
+}
+
+/* Back to Login Link */
+.back-to-login {
+    margin-top: 25px;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .forgot-div {
+        padding: 30px;
+        width: 90%;
+    }
+    
+    .logo {
+        width: 160px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .forgot-div {
+        padding: 25px;
+    }
+    
+    .forgot-div h3 {
+        font-size: 1.3rem;
+    }
+    
+    .logo {
+        width: 140px;
+    }
+    
+    .forgot-div input[type="email"],
+    .forgot-div button {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .forgot-div {
+        padding: 20px;
+    }
+    
+    .forgot-div h3 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    
+    .logo {
+        width: 120px;
+        margin-bottom: 15px;
+    }
+}
+@media 
+    (max-device-width: 1080px) and 
+    (min-device-height: 2400px) and 
+    (orientation: portrait) {
+    
+    .logindiv {
+        width: 100%;
+        max-width: 900px;
+        padding: 80px;
+   
+        transform: none; /* Remove transform scaling */
+    }
+    
+    .logo {
+        width: 280px;
+        margin-bottom: 50px;
+    }
+    
+    .logindiv input,
+    .logindiv button {
+        font-size: 2.5rem;
+        padding: 25px 30px;
+        margin-bottom: 30px;
+    }
+    
+    .logindiv h3 {
+        font-size: 4rem;
+        margin-bottom: 40px;
+    }
+    
+    #loginMessage,
+    #registerMessage {
+        font-size: 2.2rem;
+    }
+}
+
+
+
+/* Mobile Scaling for 1080×2400 Portrait */
+/* Mobile Scaling for Tall Screens (1080x2400) */
+@media 
+    (max-width: 1080px) and 
+    (min-height: 2400px) {
+    
+    .forgot-div {
+        width: 100%;
+        max-width: 900px;
+        padding: 60px;
+      
+        transform-origin: none;
+    }
+    
+    .logo {
+        width: 250px;
+        margin-bottom: 40px;
+    }
+    
+    .forgot-div h3 {
+        font-size: 2.2rem;
+        margin-bottom: 35px;
+    }
+    
+    .forgot-div input[type="email"] {
+        font-size: 1.4rem;
+        padding: 20px 25px;
+        margin-bottom: 25px;
+    }
+    
+    .forgot-div button {
+        font-size: 1.5rem;
+        padding: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .response-message {
+        font-size: 1.3rem;
+        padding: 20px;
+    }
+    
+    .forgot-div a {
+        font-size: 1.3rem;
+    }
+    
+    .back-to-login {
+        margin-top: 35px;
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #9fce88 50%, #ffffff 50%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.reset-box {
+    width: 100%;
+    max-width: 450px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 
+                -10px -10px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.reset-box h2 {
+    color: #4a934a;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.reset-box input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.reset-box input:focus {
+    outline: none;
+    border-color: #9fce88;
+    box-shadow: 0 0 0 3px rgba(159, 206, 136, 0.2);
+}
+
+.reset-box button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a934a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.reset-box button:hover {
+    background-color: #3a7a3a;
+}
+
+.back-link {
+    color: #4a934a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Standard Responsive Design */
+@media (max-width: 768px) {
+    .reset-box {
+        padding: 30px;
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .reset-box {
+        padding: 25px;
+    }
+    
+    .reset-box h2 {
+        font-size: 1.3rem;
+    }
+    
+    .reset-box input,
+    .reset-box button {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .reset-box {
+        padding: 20px;
+        border-radius: 15px;
+    }
+    
+    .reset-box h2 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    
+    .reset-box input,
+    .reset-box button {
+        padding: 8px 10px;
+    }
+    
+    .back-link {
+        font-size: 0.85rem;
+    }
+}
+
+/* Tall Screen Adaptation (1080×2400) */
+@media (max-width: 1080px) and (min-height: 2400px) {
+    .reset-box {
+        max-width: 900px;
+        padding: 60px;
+        border-radius: 30px;
+    }
+    
+    .reset-box h2 {
+        font-size: 2.2rem;
+        margin-bottom: 35px;
+    }
+    
+    .reset-box input {
+        font-size: 1.4rem;
+        padding: 20px 25px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+    }
+    
+    .reset-box button {
+        font-size: 1.5rem;
+        padding: 20px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+    }
+    
+    .back-link {
+        font-size: 1.3rem;
+        margin-top: 20px;
+    }
+    
+    body {
+        padding: 40px;
+    }
+}

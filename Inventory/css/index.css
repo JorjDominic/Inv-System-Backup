@@ -1,0 +1,379 @@
+/* Global reset with improved defaults */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+}
+
+/* Base styles with smooth transitions and better typography */
+:root {
+    --primary-color: #4a934a;
+    --primary-light: #9fce88;
+    --primary-dark: #3a7a3a;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --medium-gray: #e0e0e0;
+    --dark-gray: #777;
+    --white: #ffffff;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+}
+/* Add this to your existing CSS */
+
+.password-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding: 12px 35px 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Eye icon created with CSS */
+.password-toggle::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 12px;
+    border: 2px solid #777;
+    border-radius: 50% 50% 0 0;
+    border-bottom: none;
+    top: 0;
+}
+
+.password-toggle::after {
+    content: "Show password";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text-color);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.password-toggle:hover::after {
+    opacity: 1;
+}
+
+/* Show/hide eye icon states (keep your existing styles) */
+
+
+.password-toggle:hover::before {
+    border-color: var(--primary-color);
+}
+
+/* Show state (when password is visible) */
+.password-toggle.show::before {
+    height: 0;
+    border: none;
+    border-top: 2px solid #777;
+    border-radius: 0;
+}
+
+.password-toggle.show::after {
+    width: 16px;
+    height: 2px;
+    background: #777;
+    top: 9px;
+    left: 2px;
+    border-radius: 0;
+    transform: rotate(45deg);
+}
+
+.password-toggle:hover::before,
+.password-toggle:hover::after {
+    border-color: #4a934a;
+    background: #4a934a;
+}
+body {
+    font-family: 'Poppins';
+    /*background: linear-gradient(to bottom, var(--primary-light) 50%, var(--white) 50%); */
+    background: linear-gradient(180deg, #A0D995 0%, #B8F2E6 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Form container with modern styling */
+.logindiv {
+    font-family: 'Poppins';
+    width: 100%;
+    max-width: 450px;
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    
+}
+
+/* Logo styling */
+.logo {
+    width: 180px;
+    height: auto;
+    margin: 0 auto 2rem;
+    display: block;
+    border-radius: var(--border-radius);
+    object-fit: contain;
+}
+
+/* Form headings */
+.logindiv h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+/* Form inputs with focus states */
+.logindiv input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.95rem;
+    transition: var(--transition);
+    background-color: var(--light-gray);
+}
+
+.logindiv input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 147, 74, 0.2);
+    background-color: var(--white);
+}
+
+/* Buttons with hover and active states */
+.logindiv button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+.logindiv button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.logindiv button:active {
+    transform: translateY(0);
+}
+
+/* Links styling */
+.logindiv a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.logindiv a:hover {
+    text-decoration: underline;
+    color: var(--primary-dark);
+}
+
+/* Form messages */
+#loginMessage,
+#registerMessage {
+    text-align: center;
+    margin: 1.25rem 0;
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+}
+
+/* Forgot password link alignment */
+.logindiv p[style*="text-align: right"] {
+    margin: -0.5rem 0 1rem;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .logindiv {
+      padding: 2rem;
+      max-width: 450px; /* Slightly larger on tablets/desktops */
+    }
+  }
+  
+  /* Extra Small Devices (phones < 400px) */
+  @media (max-width: 399px) {
+    .logindiv {
+      padding: 1rem;
+      transform: scale(0.95);
+      transform-origin: center;
+    }
+    
+    .logo {
+      width: 120px;
+      margin-bottom: 1rem;
+    }
+    
+    .logindiv h3 {
+      font-size: 1.25rem;
+    }
+    
+    .logindiv input,
+    .logindiv button {
+      padding: 0.6rem;
+      font-size: 0.85rem;
+    }
+    
+    #loginMessage,
+    #registerMessage {
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Tiny Screens (phones < 350px) */
+  @media (max-width: 349px) {
+    .logindiv {
+      transform: scale(0.9);
+      padding: 0.8rem;
+    }
+    
+    .logo {
+      width: 100px;
+    }
+    
+    .logindiv input,
+    .logindiv button {
+      padding: 0.5rem;
+      font-size: 0.8rem;
+    }
+  }
+
+/* Animation for form switching */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#loginForm,
+#registerForm {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Accessibility improvements */
+.logindiv input::placeholder {
+    color: var(--dark-gray);
+    opacity: 0.7;
+}
+
+/* Focus styles for keyboard navigation */
+.logindiv a:focus,
+.logindiv button:focus,
+.logindiv input:focus {
+    outline: 2px solid var(--primary-dark);
+    outline-offset: 2px;
+}
+/* Medium screens (1024px and below) */
+/* Small tablets (1024px and below) */
+/* For large screens (1080px wide or larger) */
+/* For large screens (1080px wide or larger) */
+@media 
+    (max-device-width: 1080px) and 
+    (min-device-height: 2400px) and 
+    (orientation: portrait) {
+    
+    .logindiv {
+        width: 100%;
+        max-width: 900px;
+        padding: 80px;
+   
+        transform: none; /* Remove transform scaling */
+    }
+    
+    .logo {
+        width: 280px;
+        margin-bottom: 50px;
+    }
+    
+    .logindiv input,
+    .logindiv button {
+        font-size: 2.5rem;
+        padding: 25px 30px;
+        margin-bottom: 30px;
+    }
+    
+    .logindiv h3 {
+        font-size: 4rem;
+        margin-bottom: 40px;
+    }
+    
+    #loginMessage,
+    #registerMessage {
+        font-size: 2.2rem;
+    }
+     
+    #registerMessage a,
+    #loginMessage a {
+        font-size: 2rem; /* 55% larger than desktop */
+        padding: 8px 0; /* Larger touch target */
+        margin: 15px 0; /* More spacing */
+    }
+}
+
+/* Standard mobile devices (non-1080x2400) */
+@media (max-width: 768px) {
+    .logindiv {
+        width: 85%;
+        padding: 40px;
+    }
+}
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #A0D995 0%, #B8F2E6 100%);
+    padding: 2rem;
+  }
