@@ -21,7 +21,7 @@ CREATE TABLE Users (
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (RoleID) REFERENCES Roles(RoleID)
 );
-
+SELECT * FROM Users;
 -- ========== CUSTOMERS ==========
 CREATE TABLE Customers (
     CustomerID INT PRIMARY KEY AUTO_INCREMENT,
@@ -83,7 +83,7 @@ CREATE TABLE DeletedItems (
     CategoryID INT,
     FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
 );
-
+SELECT * FROM DELETEDitems;
 -- ========== PAYMENT METHODS ==========
 CREATE TABLE PaymentMethods (
     PaymentMethodID INT PRIMARY KEY AUTO_INCREMENT,
@@ -176,6 +176,7 @@ CREATE TABLE RefundedItems (
     FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
     FOREIGN KEY (ProcessedBy) REFERENCES Users(UserID)
 );
+SELECT * FROM RefundedItems;
 
 -- ========== DAMAGED ITEMS ==========
 CREATE TABLE DamagedItems (
@@ -188,6 +189,54 @@ CREATE TABLE DamagedItems (
     FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
     FOREIGN KEY (ReportedBy) REFERENCES Users(UserID)
 );
+
 SELECT * FROM DamagedItems;
 -- ========== SET DEFAULT ROLE FOR ADMIN ==========
 UPDATE Users SET RoleID = 1 WHERE UserID = 1;
+
+CREATE TABLE Expenses (
+    ExpenseID INT PRIMARY KEY AUTO_INCREMENT,
+    Description VARCHAR(255) NOT NULL,
+    Category VARCHAR(100) NOT NULL,
+    Amount DECIMAL(10, 2) NOT NULL,
+    Date DATE NOT NULL,
+    UserID INT NOT NULL,  -- Foreign key referencing Users table
+    FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE ON UPDATE CASCADE
+);
+ALTER TABLE Expenses ADD CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+CREATE TABLE ExpiredItems (
+    ExpiredID INT AUTO_INCREMENT PRIMARY KEY,
+    InventoryID INT NOT NULL,
+    ProductID INT NOT NULL,
+    Quantity INT NOT NULL,
+    ExpiryDate DATE NOT NULL,
+    ReportedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    DateExpired DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ReportedBy INT NOT NULL,
+    PurchasePrice DECIMAL(10,2) NOT NULL,
+    LossValue DECIMAL(10,2) GENERATED ALWAYS AS (Quantity * PurchasePrice) STORED,
+    Remarks TEXT NULL,
+    FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
+    FOREIGN KEY (ReportedBy) REFERENCES Users(UserID)
+);
+DESCRIBE Product;
+SELECT * FROM inventorylogs;
+SELECT * FROM expireditems;
+SELECT * FROM expenses;
+DROP TABLE notifications;
+SELECT * FROM notifications; 
+
+SELECT * FROM Inventory 
+WHERE ExpiryDate < CURRENT_DATE 
+AND Quantity >1;
+
+CREATE TABLE Notifications (
+    NotificationID INT AUTO_INCREMENT PRIMARY KEY,
+    UserID INT NOT NULL, 
+    Message TEXT NOT NULL, 
+    IsRead TINYINT(1) DEFAULT 0, 
+    NotificationType VARCHAR(50) DEFAULT 'info',
+    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE
+);
