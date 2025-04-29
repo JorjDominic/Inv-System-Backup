@@ -192,7 +192,7 @@ CREATE TABLE DamagedItems (
 
 SELECT * FROM DamagedItems;
 -- ========== SET DEFAULT ROLE FOR ADMIN ==========
-UPDATE Users SET RoleID = 1 WHERE UserID = 1;
+
 
 CREATE TABLE Expenses (
     ExpenseID INT PRIMARY KEY AUTO_INCREMENT,
@@ -220,16 +220,6 @@ CREATE TABLE ExpiredItems (
     FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
     FOREIGN KEY (ReportedBy) REFERENCES Users(UserID)
 );
-DESCRIBE Product;
-SELECT * FROM inventorylogs;
-SELECT * FROM expireditems;
-SELECT * FROM expenses;
-DROP TABLE notifications;
-SELECT * FROM notifications; 
-
-SELECT * FROM Inventory 
-WHERE ExpiryDate < CURRENT_DATE 
-AND Quantity >1;
 
 CREATE TABLE  Notifications (
     NotificationID INT AUTO_INCREMENT PRIMARY KEY,
@@ -242,3 +232,5 @@ CREATE TABLE  Notifications (
     INDEX (NotificationType),
     INDEX (IsRead)
 );
+SELECT * FROM  receipts;
+UPDATE Users SET RoleID = 1 WHERE UserID = 1;
